@@ -46,19 +46,35 @@ class Processor(object):
 
 class Handler(webapp2.RequestHandler):
 
+    def __init__(self, request, response):
+        # Like calling super, but with the built-in for webapp2
+        self.initialize(request, response)
+
+        self.proc = Processor()
+
     def get(self):
-        proc = Processor()
-        params = self.request.GET
-        processed = proc.validation_entry(params)
+        params = {
+            'headers': self.request.headers,
+            'body': self.request.body,
+            'content-type': self.request.content_type,
+            'query-string': self.request.query_string,
+            'params': self.request.params
+        }
+        processed = self.proc.validation_entry(params)
         if processed:
             self.response.write("validated, cleaned, and processed GET data: %s" % processed)
         else:
             self.response.write('Error handling and appropriate status code would go here')
 
     def post(self):
-        proc = Processor()
-        params = self.request.POST
-        processed = proc.validation_entry(params)
+        params = {
+            'headers': self.request.headers,
+            'body': self.request.body,
+            'content-type': self.request.content_type,
+            'query-string': self.request.query_string,
+            'params': self.request.params
+        }
+        processed = self.proc.validation_entry(params)
         if processed:
             self.response.write("validated, cleaned, and processed POST data: %s" % processed)
         else:
