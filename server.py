@@ -1,3 +1,5 @@
+from pprint import pprint
+
 import webapp2
 from paste import httpserver
 
@@ -54,12 +56,13 @@ class Handler(webapp2.RequestHandler):
 
     def get(self):
         params = {
-            'headers': self.request.headers,
+            'headers': self.request.headers.items(),
             'body': self.request.body,
             'content-type': self.request.content_type,
             'query-string': self.request.query_string,
             'params': self.request.params
         }
+        pprint(params)
         processed = self.proc.validation_entry(params)
         if processed:
             self.response.write("validated, cleaned, and processed GET data: %s" % processed)
@@ -68,12 +71,13 @@ class Handler(webapp2.RequestHandler):
 
     def post(self):
         params = {
-            'headers': self.request.headers,
+            'headers': self.request.headers.items(),
             'body': self.request.body,
             'content-type': self.request.content_type,
             'query-string': self.request.query_string,
             'params': self.request.params
         }
+        pprint(params)
         processed = self.proc.validation_entry(params)
         if processed:
             self.response.write("validated, cleaned, and processed POST data: %s" % processed)
