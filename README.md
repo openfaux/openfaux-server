@@ -3,7 +3,7 @@
 
 ##IRC
 #####Join in on the conversation.
-######Server: irc.openfaux.org
+######Server: irc.openfaux.org:6667
 ######Channel: #Dev
 
 ##License
