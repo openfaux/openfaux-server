@@ -16,7 +16,7 @@ For more information, please see https://www.openfaux.org
 
 ##### Join in on the conversation.
 ###### Server: `irc.openfaux.org:6667`
-###### Channel: `#Dev`
+###### Channel: `#Dev` and `#Server`
 
 ## License
 
