@@ -4,6 +4,9 @@ Our mission as a nonprofit foundation is to advance the security of the internet
 
 For more information, please see https://www.openfaux.org
 
+## Use Case
+### 
+
 ## Contributing
 
 1. [Fork it](https://help.github.com/articles/fork-a-repo)
@@ -12,11 +15,22 @@ For more information, please see https://www.openfaux.org
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new [Pull Request](https://help.github.com/articles/using-pull-requests)
 
-## IRC
+## Bug Tracker
+###
 
-##### Join in on the conversation.
-###### Server: `irc.openfaux.org:6667`
-###### Channel: `#Dev` and `#Server`
+## Contact
+
+Twitter: `@OpenFaux`
+
+Email: `nbernard[at]openfaux.org`
+
+IRC: `irc.openfaux.org:6667` `#Dev`
+
+## Donate
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NYTZGSJD3H3BC)
+
+[![Donate](https://coinbase.com/assets/buttons/donation_large-6ec72b1a9eec516944e50a22aca7db35.png)](https://coinbase.com/checkouts/80472bb3186294caaebb842125d94ce4)
 
 ## License
 
