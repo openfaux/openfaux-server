@@ -6,6 +6,8 @@ For more information, please see https://www.openfaux.org
 
 ## Use Case
 
+* John the Journalist is at his local coffee shop and needs to send a very sensitive email over their Wi-Fi network. OpenFaux allows him to send an email over Gmail.com, but to someone sniffing the network it would look as if he’s simply doing a Google search.
+
 ## Contributing
 
 1. [Fork it](https://help.github.com/articles/fork-a-repo)
