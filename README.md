@@ -5,7 +5,6 @@ Our mission as a nonprofit foundation is to advance the security of the internet
 For more information, please see https://www.openfaux.org
 
 ## Use Case
-### 
 
 ## Contributing
 
@@ -16,7 +15,8 @@ For more information, please see https://www.openfaux.org
 5. Create new [Pull Request](https://help.github.com/articles/using-pull-requests)
 
 ## Bug Tracker
-###
+
+Found a bug? Report it [here](https://github.com/openfaux/openfaux-server/issues/)!
 
 ## Contact
 
