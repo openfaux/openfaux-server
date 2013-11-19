@@ -17,7 +17,7 @@ One of the most prevalent issues today is protecting our internet activity from 
 ## Features
 
 * **Data Obfuscation** - OpenFaux masks your real data with benign data, misleading outsiders looking in.
-* **Encryption** - OpenFaux adds an additional layer of security by encrypting over the benign data.
+* **Encryption** - OpenFaux adds an additional layer of security by encrypting the benign data.
 * **Hide IP** - By routing your data through servers of your choice, your IP Address is masked.
 * **Simplicity** - No manual configuration. UI has been simplified to one-click.
 * **Free** - Free software allows for accessibility and aligns with our mission.
