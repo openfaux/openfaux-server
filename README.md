@@ -32,11 +32,11 @@ One of the most prevalent issues today is protecting our internet activity from 
 
 ## Bug Tracker
 
-Found a bug? Report it [here](https://github.com/openfaux/openfaux-website/issues/)!
+Found a bug? Report it [here](https://github.com/openfaux/openfaux-server/issues/)!
 
 ## Feature Request
 
-Have an idea? Add it [here](https://github.com/openfaux/openfaux-website/issues/)!
+Have an idea? Add it [here](https://github.com/openfaux/openfaux-server/issues/)!
 
 ## Contact
 
