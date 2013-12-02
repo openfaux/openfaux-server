@@ -43,6 +43,22 @@ Article Citations:
 [ZDNet](http://www.zdnet.com/uk-us-able-to-crack-most-encryption-used-online-7000020309/) |
 [ZDNet](http://www.zdnet.com/has-the-nsa-broken-ssl-tls-aes-7000020312/)
 
+## Software Stack
+
+* **Server-Side**
+    * Python
+* **Client-Side**
+    * HTML
+    * CSS
+    * JavaScript
+      * AJAX
+      * jQuery
+* **Website**
+    * HTML
+    * CSS
+    * JavaScript
+    * Foundation
+
 ## Contributing
 
 1. [Fork it](https://help.github.com/articles/fork-a-repo)
