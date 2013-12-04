@@ -1,93 +1,54 @@
-from pprint import pprint
+from twisted.python import log
+from twisted.web import http, proxy
 
-import webapp2
-from paste import httpserver
+__author__ = "Yashin Mehaboobe aka sp3ctr3"
 
-__author__ = "Brian Tomlinson <darthlukan@gmail.com>"
-
-
-class Processor(object):
+class ProxyClient(proxy.ProxyClient):
+    """Modify response as well as header here.
     """
-    Performs some basic validation of data and cleanup as needed
-    before passing off to the "heavy lifter"
-
-    NOTE: Dummy logic for now as placeholders.
-    """
-    def __init__(self):
-        pass
-
-    def validate(self, params):
+    def handleHeader(self, key, value):
         """
-        Do we even have valid data to work with?
+        Modify header here
         """
-        if params:
-            return "validated: %s" % params
-        return False
+        log.msg("Header: %s: %s" % (key, value))
+        proxy.ProxyClient.handleHeader(self, key, value)
 
-    def clean(self, params):
+    def handleResponsePart(self, buffer):
         """
-        Clean it up prior to sending to the processor
+        Modify buffer to modify response. For example replacing buffer with buffer[::-1] will lead to a reversed output.
+        This might cause content encoding errors. Currently test only on text only websites
         """
-        if params:
-            return "cleaned: %s" % params
-        return False
+        log.msg("Content: %s" % (buffer,))
+        proxy.ProxyClient.handleResponsePart(self, buffer)
 
-    def process(self, params):
-        """
-        Send to processor and return whatever we get back.
-        """
-        params = "processor_module_call_here(%s)" % params
-        return params
+class ProxyClientFactory(proxy.ProxyClientFactory):
+    protocol = ProxyClient
 
-    def validation_entry(self, params):
-        validated = self.validate(params)
-        cleaned = self.clean(validated)
-        processed = self.process(cleaned)
-        return processed
+class ProxyRequest(proxy.ProxyRequest):
+    protocols = dict(http=ProxyClientFactory)
 
+class Proxy(proxy.Proxy):
+    requestFactory = ProxyRequest
 
-class Handler(webapp2.RequestHandler):
+class ProxyFactory(http.HTTPFactory):
+    protocol = Proxy
+portstr = "tcp:8080:interface=localhost" # serve on localhost:8080
 
-    def __init__(self, request, response):
-        # Like calling super, but with the built-in for webapp2
-        self.initialize(request, response)
+if __name__ == '__main__': 
+    import sys
+    from twisted.internet import endpoints, reactor
 
-        self.proc = Processor()
+    def shutdown(reason, reactor, stopping=[]):
+        """Stop the reactor."""
+        if stopping: return
+        stopping.append(True)
+        if reason:
+            log.msg(reason.value)
+        reactor.callWhenRunning(reactor.stop)
 
-    def get(self):
-        params = {
-            'headers': self.request.headers.items(),
-            'body': self.request.body,
-            'content-type': self.request.content_type,
-            'query-string': self.request.query_string,
-            'params': self.request.params
-        }
-        pprint(params)
-        processed = self.proc.validation_entry(params)
-        if processed:
-            self.response.write("validated, cleaned, and processed GET data: %s" % processed)
-        else:
-            self.response.write('Error handling and appropriate status code would go here')
+    log.startLogging(sys.stdout)
+    endpoint = endpoints.serverFromString(reactor, portstr)
+    d = endpoint.listen(ProxyFactory())
+    d.addErrback(shutdown, reactor)
+    reactor.run()
 
-    def post(self):
-        params = {
-            'headers': self.request.headers.items(),
-            'body': self.request.body,
-            'content-type': self.request.content_type,
-            'query-string': self.request.query_string,
-            'params': self.request.params
-        }
-        pprint(params)
-        processed = self.proc.validation_entry(params)
-        if processed:
-            self.response.write("validated, cleaned, and processed POST data: %s" % processed)
-        else:
-            self.response.write('Error handling and appropriate status code goes here.')
-
-
-if __name__ == '__main__':
-    app = webapp2.WSGIApplication([
-        ('/', Handler),
-    ], debug=True)
-
-    httpserver.serve(app, host='127.0.0.1', port='8080')
