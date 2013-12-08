@@ -11,14 +11,14 @@ sudo apt-get install python -y
 echo "\nInstall pip"
 sudo apt-get install python-pip
 
-echo "\nInstall WebApp2"
-sudo pip install webapp2>=2.5.1
+# echo "\nInstall WebApp2"
+# sudo pip install webapp2>=2.5.1
 
-echo "\nInstall Paste"
-sudo pip install Paste>=1.7.5
+# echo "\nInstall Paste"
+# sudo pip install Paste>=1.7.5
 
-echo "\nInstall WebOb"
-sudo pip install WebOb>=1.2.3
+# echo "\nInstall WebOb"
+# sudo pip install WebOb>=1.2.3
 
 echo "\nInstall Twisted"
 sudo pip install python-twisted>=13.2.0
