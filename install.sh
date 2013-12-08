@@ -67,5 +67,5 @@ echo "If the versions match, everything is installed correctly. If the versions
 don't match or errors are shown, something went wrong with the automated process 
 and we will help you do the installation the manual way at the event.
 
-Congrats!
+Congrats!"
                                                                                  
