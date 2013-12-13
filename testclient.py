@@ -1,5 +1,5 @@
 import urllib2, sys
-#from BeautifulSoup import BeautifulSoup
+from BeautifulSoup import BeautifulSoup
 from difflib import context_diff
 from optparse import OptionParser
 
