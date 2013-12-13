@@ -18,8 +18,8 @@ def testBasicRequest(url = None):
 	req.add_header('Referrer', 'OpenFaux')
 	urllib2.install_opener(opener)
 	res=urllib2.urlopen(req)
-	#soup=BeautifulSoup(res.read())
-	#print soup.prettify()
+	soup=BeautifulSoup(res.read())
+	print soup.prettify()
 	
 def evalOpenfauxProxy(url = None):
 	#Change proxy settings here
