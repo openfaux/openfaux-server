@@ -38,23 +38,23 @@ else
 	echo "pip is not installed"
 fi
 
-if [  !`python -c "import webapp2;webapp2.__version__"` ]; then
-	echo "WebApp2 is installed"
-else
-	echo "WebApp2 is not installed"
-fi
+#if [  !`python -c "import webapp2;webapp2.__version__"` ]; then
+#	echo "WebApp2 is installed"
+#else
+#	echo "WebApp2 is not installed"
+#fi
 
-if [  !`python -c "import paste;"` ]; then
-	echo "Paste is installed"
-else
-	echo "Paste is not installed"
-fi
+#if [  !`python -c "import paste;"` ]; then
+#	echo "Paste is installed"
+#else
+#	echo "Paste is not installed"
+#fi
 
-if [ !`python -c "import webob;"` ]; then
-	echo "WebOb is installed"
-else
-	echo "WebOb is not installed"
-fi
+#if [ !`python -c "import webob;"` ]; then
+#	echo "WebOb is installed"
+#else
+#	echo "WebOb is not installed"
+#fi
 
 if [ !`python -c "import twisted;twisted.version"` ]; then
 	echo "Twisted is installed"
