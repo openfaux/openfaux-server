@@ -1,0 +1,3 @@
+Twisted==12.2.0
+beautifulsoup4==4.3.2
+pycrypto==2.6.1

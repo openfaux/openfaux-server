@@ -1,11 +1,22 @@
 #!/usr/bin/python
+import os
 from twisted.python import log
 from twisted.web import http, proxy
-from aes import *
+from Crypto.Cipher import AES
+import base64
+
+BLOCK_SIZE = 32
+exampleKey = AES.new('\xc6\xb3\xbc\xe9\x87+\x99\xd2\xb5\xed!\x00R!\xc7\xcc\xf7\x19`\x86qx*L\xcc\x92v!\xa5:\xfc\xbd')
+
+# one-liner to sufficiently pad the text to be encrypted
+pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * '.'
+
+# one-liners to encrypt/encode and decrypt/decode a string
+# encrypt with AES, encode with base64
+EncodeAES = lambda c, s: base64.b64encode(c.encrypt(pad(s)))
 
 __author__ = "Yashin Mehaboobe aka sp3ctr3"
 
-moo = AESModeOfOperation()
 def encryptAES(cleartext, key):
     mode, originalLength, cipherByteList = moo.encrypt(cleartext, moo.modeOfOperation["CFB"],
             key, moo.aes.keySize["SIZE_256"], key[:16])
@@ -30,8 +41,10 @@ class ProxyClient(proxy.ProxyClient):
         This might cause content encoding errors. Currently test only on text only websites
         """
         log.msg("Content: %s" % (buffer,))
-        exampleKey = [84, 121, 169, 117, 172, 150, 208, 78, 219L, 179L, 157L, 156L, 233L, 96L, 125L, 99L, 118L, 49L, 206L, 145L, 56L, 98L, 75L, 176L, 160L, 108L, 173L, 200L, 223L, 146L, 195L, 8L]
-        encryptedBuffer = encryptAES(buffer, exampleKey)
+        print "encrypting..."
+        encryptedBuffer = EncodeAES(exampleKey, buffer)
+        print "done encrypting..."
+        # encryptedBuffer = buffer
         print encryptedBuffer
         proxy.ProxyClient.handleResponsePart(self, encryptedBuffer)
 

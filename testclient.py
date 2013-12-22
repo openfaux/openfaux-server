@@ -3,7 +3,12 @@ import urllib2, sys
 from bs4 import BeautifulSoup
 from difflib import context_diff
 from optparse import OptionParser
-from aes import *
+from Crypto.Cipher import AES
+import base64
+
+BLOCK_SIZE = 32
+exampleKey = AES.new('\xc6\xb3\xbc\xe9\x87+\x99\xd2\xb5\xed!\x00R!\xc7\xcc\xf7\x19`\x86qx*L\xcc\x92v!\xa5:\xfc\xbd')
+DecodeAES = lambda c, e: c.decrypt(base64.b64decode(e)).rstrip('.')
 
 def testBasicRequest(url = None):
 	#Change proxy settings here
@@ -20,17 +25,17 @@ def testBasicRequest(url = None):
 	req.add_header('Referrer', 'OpenFaux')
 	urllib2.install_opener(opener)
 	res=urllib2.urlopen(req)
-	soup=BeautifulSoup(res.read())
-	print soup.get_text()
-	exampleKey = [84, 121, 169, 117, 172, 150, 208, 78, 219L, 179L, 157L, 156L, 233L, 96L, 125L, 99L, 118L, 49L, 206L, 145L, 56L, 98L, 75L, 176L, 160L, 108L, 173L, 200L, 223L, 146L, 195L, 8L]
-	cleartextRequest = decryptAES(soup.get_text(), exampleKey)
+	# print res.read()
+	# soup=BeautifulSoup(res.read())
+	# print soup.get_text()
+	# print res.read()
+	cleartextRequest = DecodeAES(exampleKey, res.read())
 	print cleartextRequest
 	
-moo = AESModeOfOperation()
 def decryptAES(cipherText, key):
 	# split cipher into char pairs and interpret them as base 16 (hex):
 	cipherByteList = [int(cipherText[i:i+2], 16) for i in range(0, len(cipherText), 2)]
-	print cipherByteList
+	# print cipherByteList
 	return moo.decrypt(cipherByteList, None, moo.modeOfOperation["CFB"], key,
 			moo.aes.keySize["SIZE_256"], key[:16])
 
