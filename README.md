@@ -22,26 +22,8 @@ One of the most prevalent issues today is protecting our internet activity from 
 * **Simplicity** - No manual configuration. UI has been simplified to one-click.
 * **Free** - Free software allows for accessibility and aligns with our mission.
 
-## FAQs
-
-* **OpenFaux vs _Proxy_** - Proxies just mask your IP.
-
-* **OpenFaux vs _SSL/TLS_** - SSL/TLS is an encryption standard that we are utilizing. 
- 
-* **OpenFaux vs _Tor_** - Tor is a network of proxies used for masking your IP. Anyone can host a server and join their network.
-
-* **OpenFaux vs _VPN_** - VPNs (Virtual Private Networks), have you login (private) and enable you to have access to all of the network's resources, including their internet. VPNs have added security measures in place that are used in the connection (tunneling) process and "mask" your IP in a way, but it's a private network so they can see who owns the network then there's records of all of the members so it can be traced back to you.
-
-Additionally, recent news states that SSL/TLS, HTTPS, SSH, VPN, PGP, AES, Encrypted VoIP, and 4G technologies have been broken (even Tor and L2TP/IPSec potentially being compromised).
-
-Article Citations: 
-[The Guardian](http://www.theguardian.com/world/2013/sep/05/nsa-gchq-encryption-codes-security) |
-[The New York Times](http://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html?hp&_r=0&pagewanted=all) |
-[USA TODAY](http://www.usatoday.com/story/news/nation/2013/09/05/nsa-snowden-encryption-cracked/2772721/) |
-[InformationWeek](http://www.informationweek.com/security/risk-management/nsa-surveillance-can-penetrate-vpns/d/d-id/1110996?) |
-[ExtremeTech](http://www.extremetech.com/computing/165849-nsa-and-gchq-have-broken-internet-encryption-created-backdoors-that-anyone-could-use) |
-[ZDNet](http://www.zdnet.com/uk-us-able-to-crack-most-encryption-used-online-7000020309/) |
-[ZDNet](http://www.zdnet.com/has-the-nsa-broken-ssl-tls-aes-7000020312/)
+## Flowchart
+![OpenFaux](https://raw.github.com/openfaux/openfaux-website/master/HTML/IMG/OpenFaux.png)
 
 ## Software Stack
 
@@ -74,6 +56,27 @@ Found a bug? Report it [here](https://github.com/openfaux/openfaux-website/issue
 ## Feature Request
 
 Have an idea? Add it [here](https://github.com/openfaux/openfaux-website/issues/)!
+
+## FAQs
+
+* **OpenFaux vs _Proxy_** - Proxies just mask your IP.
+
+* **OpenFaux vs _SSL/TLS_** - SSL/TLS is an encryption standard that we are utilizing. 
+ 
+* **OpenFaux vs _Tor_** - Tor is a network of proxies used for masking your IP. Anyone can host a server and join their network.
+
+* **OpenFaux vs _VPN_** - VPNs (Virtual Private Networks), have you login (private) and enable you to have access to all of the network's resources, including their internet. VPNs have added security measures in place that are used in the connection (tunneling) process and "mask" your IP in a way, but it's a private network so they can see who owns the network then there's records of all of the members so it can be traced back to you.
+
+Additionally, recent news states that SSL/TLS, HTTPS, SSH, VPN, PGP, AES, Encrypted VoIP, and 4G technologies have been broken (even Tor and L2TP/IPSec potentially being compromised).
+
+Article Citations: 
+[The Guardian](http://www.theguardian.com/world/2013/sep/05/nsa-gchq-encryption-codes-security) |
+[The New York Times](http://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html?hp&_r=0&pagewanted=all) |
+[USA TODAY](http://www.usatoday.com/story/news/nation/2013/09/05/nsa-snowden-encryption-cracked/2772721/) |
+[InformationWeek](http://www.informationweek.com/security/risk-management/nsa-surveillance-can-penetrate-vpns/d/d-id/1110996?) |
+[ExtremeTech](http://www.extremetech.com/computing/165849-nsa-and-gchq-have-broken-internet-encryption-created-backdoors-that-anyone-could-use) |
+[ZDNet](http://www.zdnet.com/uk-us-able-to-crack-most-encryption-used-online-7000020309/) |
+[ZDNet](http://www.zdnet.com/has-the-nsa-broken-ssl-tls-aes-7000020312/)
 
 ## Contact
 
