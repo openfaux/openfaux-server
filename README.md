@@ -28,18 +28,18 @@ One of the most prevalent issues today is protecting our internet activity from 
 ## Software Stack
 
 * **Server-Side**
-    * Python
+ * Python
 * **Client-Side**
-    * HTML
-    * CSS
-    * JavaScript
-      * AJAX
-      * jQuery
+ * HTML
+  * CSS
+  * JavaScript
+   * AJAX
+   * jQuery
 * **Website**
-    * HTML
-    * CSS
-    * JavaScript
-    * Foundation
+ * HTML
+ * CSS
+ * JavaScript
+ * Foundation
 
 ## Contributing
 
