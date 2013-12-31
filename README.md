@@ -84,8 +84,6 @@ Twitter: `@OpenFaux`
 
 Email: `nbernard[at]openfaux.org`
 
-IRC: `irc.openfaux.org:6667` `#Dev`
-
 ## License
 
 ##### OpenFaux is released under the [GNU Affero General Public License (AGPL3)](https://www.gnu.org/licenses/agpl-3.0.html).
