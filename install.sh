@@ -5,10 +5,10 @@ set -e
 echo "Updates packages. Asks for your password."
 sudo apt-get update -y
 
-echo "\nInstall Python"
+echo -e "\nInstall Python"
 sudo apt-get install python -y
 
-echo "\nInstall pip"
+echo -e "\nInstall pip"
 sudo apt-get install python-pip
 
 # echo "\nInstall WebApp2"
