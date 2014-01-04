@@ -1,7 +1,7 @@
 from twisted.python import log
 from twisted.web import http, proxy
 
-__author__ = "Yashin Mehaboobe aka sp3ctr3"
+__author__ = "Yashin Mehaboobe (@sp3ctr3)"
 
 class ProxyClient(proxy.ProxyClient):
     """Modify response as well as header here.
