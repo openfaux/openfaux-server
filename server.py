@@ -1,5 +1,6 @@
 from twisted.python import log
 from twisted.web import http, proxy
+from keyczar.keys import RsaPrivateKey,AesKey
 
 __author__ = "Yashin Mehaboobe aka sp3ctr3"
 
@@ -10,7 +11,7 @@ class ProxyClient(proxy.ProxyClient):
         """
         Modify header here
         """
-        log.msg("Header: %s: %s" % (key, value))
+        #log.msg("Header: %s: %s" % (key, value))
         proxy.ProxyClient.handleHeader(self, key, value)
 
     def handleResponsePart(self, buffer):
@@ -18,7 +19,7 @@ class ProxyClient(proxy.ProxyClient):
         Modify buffer to modify response. For example replacing buffer with buffer[::-1] will lead to a reversed output.
         This might cause content encoding errors. Currently test only on text only websites
         """
-        log.msg("Content: %s" % (buffer,))
+        #log.msg("Content: %s" % (buffer,))
         proxy.ProxyClient.handleResponsePart(self, buffer)
 
 class ProxyClientFactory(proxy.ProxyClientFactory):
@@ -29,6 +30,17 @@ class ProxyRequest(proxy.ProxyRequest):
 
 class Proxy(proxy.Proxy):
     requestFactory = ProxyRequest
+    def connectionMade(self):
+        self.assym_key=RsaPrivateKey.Generate()
+        pub_key=self.assym_key.public_key
+        self.transport.write(str(pub_key))
+        return proxy.ProxyClient.connectionMade(self)
+    def dataReceived(self,data):
+        straes=self.assym_key.Decrypt(data[:261])
+        self.AES=AesKey.Read(straes)
+        data=self.AES.Decrypt(data[261:])
+        print data,len(data)
+        return proxy.Proxy.dataReceived(self, data)
 
 class ProxyFactory(http.HTTPFactory):
     protocol = Proxy
