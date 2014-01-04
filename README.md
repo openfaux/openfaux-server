@@ -4,7 +4,7 @@ Our mission is to advance the security of the internet and privacy for all onlin
 
 For more information, please see https://www.openfaux.org
 
-> _Warning: OpenFaux is experimental, early-stage software. There may be flaws._
+**Warning:** OpenFaux is experimental, early-stage software. There may be flaws.
 
 ## Problem
 
