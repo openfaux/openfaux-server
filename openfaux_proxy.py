@@ -1,7 +1,30 @@
+#!/bin/env python
+
+# Packing meta data
+# ---------------------------------------------------------------------------------------------
+
+__name__    = "openfaux proxy server"
+__desc__    = "Thee openfaux proxy server"
+__ldesc__   = "This is the main proxy server of openfaux system! it's hosted on dagobah planet!" 
+__version__ = "0.0.1" 
+__license__ = "AGPL3"
+__url__     = "http://openfaux.org"
+__author__  = "Yashin Mehaboobe (@sp3ctr3)"
+__email__   = "unknow"
+
+# ---------------------------------------------------------------------------------------------
+
+# I dont see with good eye the import different point on the code!
+# For more control it is better all of them on the top.
+#
+# If the excuse to use import around the code is about perfomance so i think
+# it is time to switch for C and make use of alloc function :D
+
+import sys
+from twisted.internet import endpoints, reactor
+
 from twisted.python import log
 from twisted.web import http, proxy
-
-__author__ = "Yashin Mehaboobe (@sp3ctr3)"
 
 class ProxyClient(proxy.ProxyClient):
     """Modify response as well as header here.
@@ -35,20 +58,31 @@ class ProxyFactory(http.HTTPFactory):
 portstr = "tcp:8080:interface=localhost" # serve on localhost:8080
 
 if __name__ == '__main__': 
-    import sys
-    from twisted.internet import endpoints, reactor
-
+    
+    
     def shutdown(reason, reactor, stopping=[]):
+        
         """Stop the reactor."""
-        if stopping: return
+        
+        if stopping: 
+            
+            return # a one line  statements only slows down our process of visual recognition of the code
+            
         stopping.append(True)
+        
         if reason:
+            
             log.msg(reason.value)
+            
         reactor.callWhenRunning(reactor.stop)
 
     log.startLogging(sys.stdout)
+    
     endpoint = endpoints.serverFromString(reactor, portstr)
+
     d = endpoint.listen(ProxyFactory())
+
     d.addErrback(shutdown, reactor)
+
     reactor.run()
 
