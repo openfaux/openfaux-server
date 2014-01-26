@@ -1,4 +1,4 @@
-![OpenFaux](https://raw.github.com/openfaux/openfaux-website/master/HTML/IMG/openfaux-horizontal-2500px.png)
+![OpenFaux](https://raw2.github.com/openfaux/openfaux-website/master/HTML/IMG/openfaux-horizontal-600px.png)
 ### Browser add-on for encrypting and masking internet traffic.
 Our mission is to advance the security of the internet and privacy for all online users. To begin fulfulling our mission, we've began working on OpenFaux. OpenFaux is an open source browser add-on for encrypting and masking internet traffic.
 
