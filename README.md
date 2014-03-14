@@ -6,9 +6,9 @@ For more information, please see https://www.openfaux.org
 
 **Warning:** OpenFaux is experimental, early-stage software. There may be flaws.
 
-## Problem
+## Threat Model
 
-One of the most prevalent issues today is protecting our internet activity from being obtained by outsiders. Defending yourself from being a victim of MITM Attacks, Network Sniffing, Nosy ISPs, Employers, Network Administrators, Systems Administrators, Internet Censorship and Surveillance seems like an impossible, everlasting chain of threats that everyone online faces. OpenFaux solves these problems by utilizing and innovating on some of the most complex internet technologies.  
+* MITM attacks, specifically in situations that possible SSL stripping is a factor.  
 
 ## Use Case
 
